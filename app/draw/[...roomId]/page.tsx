@@ -29,7 +29,7 @@ interface RoundOverStateType {
   [key : string] : number
 }
 
-export default function (){
+export default function RoomPage(){
 
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
