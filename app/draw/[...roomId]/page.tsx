@@ -1,17 +1,17 @@
 "use client";
 
-import GameOptions from "@/components/game-options";
+// import GameOptions from "@/components/game-options";
 import { GameOver } from "@/components/gameOver";
-import { Modal } from "@/components/modal";
+// import { Modal } from "@/components/modal";
 import { Players } from "@/components/players";
 import { RoundScore } from "@/components/roundScore";
 import { Dialog, DialogContent, DialogTitle } from "@/components/scoreCard";
 import { Message } from "@/components/ui/message";
 import { WordToGuess } from "@/components/wordToGuess";
-import axios from "axios";
+// import axios from "axios";
 import { X } from "lucide-react";
 import { useParams } from "next/navigation";
-import { useRef, useState, useEffect, useMemo } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface PlayersType {
   name : string,
@@ -20,10 +20,10 @@ interface PlayersType {
   avatar : string
 }
 
-interface LetterReveled {
-  index : number
-  letter : string
-}
+// interface LetterReveled {
+//   index : number
+//   letter : string
+// }
 
 interface RoundOverStateType {
   [key : string] : number

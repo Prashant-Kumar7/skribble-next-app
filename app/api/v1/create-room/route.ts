@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import jwt  from "jsonwebtoken"
+// import jwt  from "jsonwebtoken"
 import { redisClient } from "../../../../lib/functions";
 
-const secretKey = "secret";
+// const secretKey = "secret";
 
 
 export const POST = async(req : NextRequest)=>{
