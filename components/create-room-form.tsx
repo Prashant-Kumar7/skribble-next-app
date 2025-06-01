@@ -20,7 +20,7 @@ export function CreateRoomForm({ onClose, avatar }: CreateRoomFormProps) {
     // Handle room creation logic here
     console.log('Creating room for:', name)
     localStorage.setItem("username", name);
-    const res = await axios.post("http://localhost:3000/api/v1/create-room", {name : name, avatar : avatar})
+    const res = await axios.post("https://skribble-next-app.vercel.app/api/v1/create-room", {name : name, avatar : avatar})
     router.push(`/draw/${res.data.roomId}`)
     onClose()
   }

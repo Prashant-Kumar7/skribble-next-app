@@ -21,7 +21,7 @@ export function JoinRoomForm({ onClose, avatar }: JoinRoomFormProps) {
     // Handle room joining logic here
     console.log('Joining room:', roomId, 'as:', name)
     localStorage.setItem("username", name);
-    const res =await axios.post("http://localhost:3000/api/v1/join-room", {name : name, roomId : roomId, avatar : avatar})
+    const res =await axios.post("https://skribble-next-app.vercel.app/api/v1/join-room", {name : name, roomId : roomId, avatar : avatar})
     if(res.data.err){
       setErrMsg(res.data.err)
     }else{

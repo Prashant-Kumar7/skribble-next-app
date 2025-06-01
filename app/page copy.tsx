@@ -50,7 +50,7 @@ export default function Home() {
   const handleCreateRoom = async(e: React.FormEvent) => {
     e.preventDefault()
     localStorage.setItem("username", name);
-    const res = await axios.post("http://localhost:3000/api/v1/create-room", {name : name, avatar : svg})
+    const res = await axios.post("https://skribble-next-app.vercel.app/api/v1/create-room", {name : name, avatar : svg})
     router.push(`/draw/${res.data.roomId}`)
     // console.log("Creating room:", { name, avatarUrl })
   }
@@ -58,7 +58,7 @@ export default function Home() {
   const handleJoinRoom = async(e: React.FormEvent) => {
     e.preventDefault()
     localStorage.setItem("username", name);
-    const res =await axios.post("http://localhost:3000/api/v1/join-room", {name : name, roomId : roomId, avatar : svg})
+    const res =await axios.post("https://skribble-next-app.vercel.app/api/v1/join-room", {name : name, roomId : roomId, avatar : svg})
     if(res.data.err){
       console.log(res.data.err)
     }else{
