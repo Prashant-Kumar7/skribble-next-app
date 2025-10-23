@@ -222,10 +222,17 @@ export default function RoomPage(){
       useEffect(() => {
         const canvas = canvasRef.current;
         if (canvas) {
-          // canvas.width = 755; // 60rem * 16 (assuming 1rem = 16px)
-          // canvas.height = 540; // 40rem * 16 (assuming 1rem = 16px)
+          const rect = canvas.getBoundingClientRect();
+          const dpr = window.devicePixelRatio || 1;
+          
+          // Set the internal canvas size to match the display size
+          canvas.width = rect.width * dpr;
+          canvas.height = rect.height * dpr;
+          
           const ctx = canvas.getContext("2d");
           if (ctx) {
+            // Scale the context to match the device pixel ratio
+            ctx.scale(dpr, dpr);
             ctx.lineCap = "round";
             ctxRef.current = ctx;
           }

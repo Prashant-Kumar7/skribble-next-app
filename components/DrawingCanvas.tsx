@@ -28,6 +28,26 @@ export const DrawingCanvas = ({
 }: DrawingCanvasProps) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   
+  // Set canvas dimensions properly
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (canvas) {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      
+      // Set the internal canvas size to match the display size
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      
+      // Scale the context to match the device pixel ratio
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        ctx.scale(dpr, dpr);
+        ctx.lineCap = 'round';
+      }
+    }
+  }, []);
+  
   const presetColors = [
     '#000000', '#FFFFFF', '#FF0000', '#00FF00', '#0000FF', '#FFFF00',
     '#FF00FF', '#00FFFF', '#FFA500', '#800080', '#FFC0CB', '#A52A2A'
@@ -51,8 +71,6 @@ export const DrawingCanvas = ({
           onMouseMove={onDraw}
           onMouseUp={onStopDrawing}
           onMouseOut={onStopDrawing}
-          width={800}
-          height={600}
         />
         {isDisabled && (
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
