@@ -1,5 +1,13 @@
-export const WordToGuess = ({letter} : {letter : string})=>{
-    return (
-        <span style={{width : "17.44px", height : "34.56px", padding : "0"}} className=" font-semibold border-b-4 text-2xl text-center">{letter}</span>
-    )
+import React from 'react';
+
+interface WordToGuessProps {
+  letter: string;
 }
+
+export const WordToGuess: React.FC<WordToGuessProps> = ({ letter }) => {
+  return (
+    <span className="inline-block w-8 h-12 mx-1 text-2xl font-bold text-center text-white border-b-4 border-blue-400 animate-pulse">
+      {letter}
+    </span>
+  );
+};

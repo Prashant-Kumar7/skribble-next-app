@@ -6,12 +6,7 @@ import dotenv from "dotenv"
 dotenv.config()
 
 export const redisClient = createClient({
-    username: 'default',
-    password: process.env.REDIS_PASSWORD,
-    socket: {
-        host: 'redis-14424.c83.us-east-1-2.ec2.redns.redis-cloud.com',
-        port: 14424
-    }
+    url: process.env.REDIS_URL
 });
 
 redisClient.on('error', err => console.log('Redis Client Error', err));
